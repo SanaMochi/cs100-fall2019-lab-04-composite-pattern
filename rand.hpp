@@ -6,7 +6,7 @@
 
 class Rand : public Base {
     public:
-        Op(double value) : Base() { }
+        Rand() : Base() { }
         virtual double evaluate() { return 13.7; }
         virtual std::string stringify() { return "13.7"; }
 };
