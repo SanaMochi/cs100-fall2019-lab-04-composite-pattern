@@ -25,7 +25,7 @@ TEST(OpTest, AddTestStringify) {
 	Op* seven = new Op(7);
 	Op* two = new Op(2);
     Add* test = new Add(seven, two);
-    EXPECT_EQ(test->stringify() , "7.000000 + 2.000000 = 9.000000");
+    EXPECT_EQ(test->stringify() , "7.000000 + 2.000000");
 }
 
 TEST(OpTest, SubTestEvaluate) {
@@ -39,7 +39,7 @@ TEST(OpTest, SubTestStringify) {
 	Op* seven = new Op(7);
 	Op* two = new Op(2);
     Sub* test = new Sub(seven, two);
-    EXPECT_EQ(test->stringify() , "7.000000 - 2.000000 = 5.000000");
+    EXPECT_EQ(test->stringify() , "7.000000 - 2.000000");
 }
 
 #endif //__OP_TEST_HPP__
