@@ -22,7 +22,14 @@ TEST(OpTest, MultEvaluateNonZero) {
     Mult* test = new Mult(two, four);
     EXPECT_EQ(test->evaluate(), 8);
 }
-/*
+
+TEST(OpTest, MultEvaluateNonZeroString) {
+    Op* two = new Op(2);
+    Op* four = new Op(4);
+    Mult* test = new Mult(two, four);
+    EXPECT_EQ(test->stringify(), "2.000000 * 4.000000");
+}
+
 TEST(OpTest, MultEvaluateZero) {
     Op* op1 = new Op(0);
     Op* op2 = new Op(9);
@@ -41,17 +48,19 @@ TEST(OpTest, MultEvaluateDoubleNeg) {
     Mult* test = new Mult(op1, op2);
     EXPECT_EQ(test->evaluate(), 8);
 }
-*/
-/*
+
+
 TEST(OpTest, DivEvaluatePos) {
     Op* op1 = new Op(8);
     Op* op2 = new Op(2);
     Div* test = new Div(op1, op2);
     EXPECT_EQ(test->evaluate(), 4);
 }
-TEST(OpTest, DivEvaluatePos) {
-    Mult* test = new Mult(8, 2);
-    EXPECT_EQ(test->stringify(), "8.000000 * 2.000000 = 16.000000");
+TEST(OpTest, DivEvaluatePosString) {
+    Op* op1 = new Op(8);
+    Op* op2 = new Op(2);
+    Div* test = new Div(op1, op2);
+    EXPECT_EQ(test->stringify(), "8.000000 / 2.000000");
 }
 TEST(OpTest, DivEvaluateZero) {
     Op* op1 = new Op(0);
@@ -71,8 +80,7 @@ TEST(OpTest, DivEvaluateDoubleNeg) {
     Div* test = new Div(op1, op2);
     EXPECT_EQ(test->evaluate(), 0.5);
 }
-*/
-/*
+
 TEST(OpTest, PowEvaluateZeroEx) {
     Op* op1 = new Op(4);
     Op* op2 = new Op(0);
@@ -85,6 +93,14 @@ TEST(OpTest, PowEvaluateZeroBaseAndZeroEx) {
     Pow* test = new Pow(op1, op2);
     EXPECT_EQ(test->evaluate(), 1);
 }
+
+TEST(OpTest, PowEvaluateZeroBaseAndZeroExString) {
+    Op* op1 = new Op(0);
+    Op* op2 = new Op(0);
+    Pow* test = new Pow(op1, op2);
+    EXPECT_EQ(test->stringify(), "0.000000 ** 0.000000");
+}
+
 TEST(OpTest, PowEvaluateZeroBase) {
     Op* op1 = new Op(0);
     Op* op2 = new Op(4);
@@ -115,5 +131,5 @@ TEST(OpTest, PowEvaluateNegBaseEvenEx) {
     Pow* test = new Pow(op1, op2);
     EXPECT_EQ(test->evaluate(), 16);
 }
-*/
+
 #endif //__OP_TEST_HPP__
